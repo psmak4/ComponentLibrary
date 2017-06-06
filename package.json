@@ -7,7 +7,7 @@
 		"css:prefix": "postcss -u autoprefixer --autoprefixer.browsers '> 5%, ie 9' -r dist/css/*.css",
 		"css:minify": "cleancss --level 1 --source-map --output dist/css/cl.min.css dist/css/cl.css",
 		"start:docs": "node buildScripts/docsServer.js",
-		"watch:css": "nodemon --ignore dist/ -e scss -x \"npm run css\""
+		"watch:css": "nodemon --ignore dist/ --ignore docs/ -e scss -x \"npm run css\""
 	},
 	"devDependencies": {
 		"autoprefixer": "^7.1.1",
