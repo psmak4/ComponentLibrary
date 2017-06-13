@@ -1,0 +1,92 @@
+.button {
+	display: inline-block;
+	margin: 0;
+	padding: 1rem 2rem;
+	border: 2px solid #E7E7E7;
+	border-radius: 0.2rem;
+	background-color: #E7E7E7;
+	color: #444444;
+	cursor: pointer;
+	font-weight: bold;
+	overflow: hidden;
+	transition: all ease-in 0.15s;
+
+	&:hover {
+		border-color: darken(#E7E7E7, 10%);
+		background-color: darken(#E7E7E7, 10%);
+	}
+
+	/* colors */
+	&--black {
+		border-color: #444444;
+		background-color: #444444;
+		color: #FFFFFF;
+
+		&:hover {
+			border-color: darken(#444444, 10%);
+			background-color: darken(#444444, 10%);
+		}
+	}
+
+	&--blue {
+		border-color: #008CBA;
+		background-color: #008CBA;
+		color: #FFFFFF;
+
+		&:hover {
+			border-color: darken(#008CBA, 10%);
+			background-color: darken(#008CBA, 10%);
+		}
+	}
+
+	&--green {
+		border-color: #4CAF50;
+		background-color: #4CAF50;
+		color: #FFFFFF;
+
+		&:hover {
+			border-color: darken(#4CAF50, 10%);
+			background-color: darken(#4CAF50, 10%);
+		}
+	}
+
+	&--red {
+		border-color: #F44336;
+		background-color: #F44336;
+		color: #FFFFFF;
+
+		&:hover {
+			border-color: darken(#F44336, 10%);
+			background-color: darken(#F44336, 10%);
+		}
+	}
+
+	&--outline {
+		background-color: #FFFFFF;
+		color: #444444;
+
+		&.button--black, &.button--blue, &.button--green, &.button--red {
+
+			&:hover {
+				color: #FFFFFF;
+			}
+		}
+	}
+
+	/* sizes */
+	&--large {
+		padding: 1.5rem 2.5rem;
+		border-radius: 0.3rem;
+	}
+
+	&--small {
+		padding: 0.5rem 1.5rem;
+		border-radius: 0.1rem;
+	}
+
+	/* other modifiers */
+	&[disabled] {
+		cursor: not-allowed;
+		opacity: 0.6;
+	}
+}

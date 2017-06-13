@@ -5,7 +5,8 @@ var open = require('open');
 var port = 3000;
 var app = express();
 
-app.use(express.static('docs'))
+app.use(express.static('docs'));
+app.use(express.static('dist'));
 
 //app.get('/', function(req, res) {
 //	res.sendFile(path.join(__dirname, '../docs/index.html'));

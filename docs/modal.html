@@ -1,25 +1,67 @@
 <html>
 	<head>
 		<title>Component Library</title>
-		<link rel="stylesheet" type="text/css" href="../dist/css/cl.min.css">
+		<link rel="stylesheet" type="text/css" href="css/cl.min.css">
 	</head>
 	<body>
-		<div class="modal">
-			<div class="modal__background"></div>
-			
-			<div class="modal__content">
-				<div class="modal__header">
-					<div class="modal__title">Modal Title</div>
-				</div>
+		<div class="container">
+			<a href="/">&lt; back</a>
+			<br />
 
-				<div class="modal__body">
-					This is the modal body.
-				</div>
+			<h1>Modal</h1>
 
-				<div class="modal__footer">
-					This is the modal footer.
+			<button id="LaunchModal" class="button" data-modal-open="#TestModal">Launch Modal</button>
+			<button id="LaunchModalClick" class="button button--blue">Launch Modal (click)</button>
+			<button id="LaunchModalInverted" class="button button--red" data-modal-open="#TestModalInverted">Launch Modal (inverted)</button>
+
+			<div id="TestModal" class="modal modal--hidden">
+				<div class="modal__background" data-modal-close></div>
+				
+				<div class="modal__content">
+					<div class="modal__header">
+						<div class="modal__title">Modal Title</div>
+					</div>
+
+					<div class="modal__body">
+						This is the modal body.
+					</div>
+
+					<div class="modal__footer">
+						<button data-modal-close>Close</button>
+					</div>
+				</div>
+			</div>
+
+			<div id="TestModalInverted" class="modal modal--inverted modal--hidden">
+				<div class="modal__background" data-modal-close></div>
+				
+				<div class="modal__content">
+					<div class="modal__header">
+						<div class="modal__title">Modal Title</div>
+					</div>
+
+					<div class="modal__body">
+						This is the modal body.
+					</div>
+
+					<div class="modal__footer">
+						<button data-modal-close>Close</button>
+					</div>
 				</div>
 			</div>
 		</div>
+
+		<script src="js/cl.min.js"></script>
+		<script>
+			window.onload = function () {
+				var modal = new Modal('#TestModal');
+				var modalInverted = new Modal('#TestModalInverted');
+
+				document.querySelector('#LaunchModalClick').addEventListener('click', function (event) {
+					event.preventDefault();
+					modal.Open();
+				});
+			};
+		</script>
 	</body>
 </html>

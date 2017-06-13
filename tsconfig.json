@@ -1,0 +1,13 @@
+{
+	"compilerOptions": {
+		"outFile": "./dist/js/cl.js",
+		"sourceMap": true,
+		"allowJs": true,
+		"target": "es5",
+		"noImplicitAny": true,
+		"module": "amd"
+	},
+	"include": [
+		"./src/ts/**/*"
+	]
+}

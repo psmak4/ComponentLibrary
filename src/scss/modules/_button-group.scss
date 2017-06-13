@@ -1,0 +1,101 @@
+.button-group {
+	display: inline-block;
+	border-radius: 0.2rem;
+	overflow: hidden;
+	@extend %clearfix;
+	
+	.button {
+		float: left;
+		border-color: #E7E7E7;
+		border-radius: 0;
+		background-color: #E7E7E7;
+		color: #444444;
+
+		&:hover {
+			border-color: darken(#E7E7E7, 10%);
+			background-color: darken(#E7E7E7, 10%);
+		}
+	}
+
+	/* orientation */
+	&--vertical {
+
+		.button {
+			display: block;
+			float: none;
+			width: 100%;
+		}
+	}
+
+	/* colors */
+	&--black {
+
+		.button {
+			border-color: #444444;
+			background-color: #444444;
+			color: #FFFFFF;
+
+			&:hover {
+				border-color: darken(#444444, 10%);
+				background-color: darken(#444444, 10%);
+			}
+		}
+	}
+
+	&--blue {
+
+		.button {
+			border-color: #008CBA;
+			background-color: #008CBA;
+			color: #FFFFFF;
+
+			&:hover {
+				border-color: darken(#008CBA, 10%);
+				background-color: darken(#008CBA, 10%);
+			}
+		}
+	}
+
+	&--green {
+
+		.button {
+			border-color: #4CAF50;
+			background-color: #4CAF50;
+			color: #FFFFFF;
+
+			&:hover {
+				border-color: darken(#4CAF50, 10%);
+				background-color: darken(#4CAF50, 10%);
+			}
+		}
+	}
+
+	&--red {
+		
+		.button {
+			border-color: #F44336;
+			background-color: #F44336;
+			color: #FFFFFF;
+
+			&:hover {
+				border-color: darken(#F44336, 10%);
+				background-color: darken(#F44336, 10%);
+			}
+		}
+	}
+
+	/* sizes */
+	&--large {
+
+		.button {
+			padding: 1.5rem 2.5rem;
+		}
+	}
+
+	&--small {
+
+		.button {
+			padding: 0.5rem 1.5rem;
+		}
+	}
+}
