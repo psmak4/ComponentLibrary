@@ -1,4 +1,4 @@
-class Modal {
+export class Modal {
 	modalDom: Element;
 	
 	constructor(modalId: string) {
