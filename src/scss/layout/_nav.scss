@@ -1,15 +1,29 @@
 .nav {
-	display: block;
 	background-color: #444444;
-	color: #FFFFFF;
 	font-family: $open-sans;
 
-	&--right {
-		float: right;
+	&--slide-left {
+		position: fixed;
+		top: 3rem;
+		bottom: 0;
+		left: 0;
+		width: 16rem;
+		transition: left ease-in 0.2s;
 
-		&>.nav__items>.nav__item:last-of-type .nav__sub-items {
-			right: 0;
-			left: auto;
+		&.nav {
+
+			&--hidden {
+				left: -16rem;
+			}
+		}
+
+		.nav {
+			&__sub {
+
+				&-link {
+					padding-left: 2rem;
+				}
+			}
 		}
 	}
 
@@ -22,17 +36,12 @@
 	&__item {
 		display: block;
 		position: relative;
-		float: left;
 		height: 3rem;
 		font-size: 0.9rem;
 		line-height: 3rem;
 
 		&:hover {
 			background-color: darken(#444444, 5%);
-
-			.nav__sub-items {
-				display: block;
-			}
 		}
 	}
 
@@ -51,14 +60,9 @@
 	&__sub {
 
 		&-items {
-			display: none;
-			position: absolute;
-			top: 100%;
-			left: 0;
 			list-style: none;
 			margin: 0;
 			padding: 0;
-			background-color: darken(#444444, 5%);
 			font-size: 0.9rem;
 		}
 

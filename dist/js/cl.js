@@ -83,7 +83,9 @@ window.onload = function () {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var modal_1 = __webpack_require__(2);
+var header_1 = __webpack_require__(2);
+var modal_1 = __webpack_require__(3);
+var nav_1 = __webpack_require__(4);
 var App = (function () {
     function App() {
         var _this = this;
@@ -93,8 +95,27 @@ var App = (function () {
             for (var i = 0; i < modals.length; i++) {
                 _this.Modals.push(new modal_1.Modal('#' + modals[i].id));
             }
+            console.log('modal count', _this.Modals.length);
         };
+        this.RegisterHeaders = function () {
+            _this.Headers = new Array();
+            var headers = document.querySelectorAll('.header');
+            for (var i = 0; i < headers.length; i++) {
+                _this.Headers.push(new header_1.Header('#' + headers[i].id));
+            }
+            console.log('header count', _this.Headers.length);
+        };
+        this.RegisterNavs = function () {
+            _this.Navs = new Array();
+            var navs = document.querySelectorAll('.nav');
+            for (var i = 0; i < navs.length; i++) {
+                _this.Navs.push(new nav_1.Nav('#' + navs[i].id));
+            }
+            console.log('nav count', _this.Navs.length);
+        };
+        this.RegisterHeaders();
         this.RegisterModals();
+        this.RegisterNavs();
     }
     return App;
 }());
@@ -103,6 +124,22 @@ exports.App = App;
 
 /***/ }),
 /* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var Header = (function () {
+    function Header(headerId) {
+        this.headerDom = document.querySelector(headerId);
+    }
+    return Header;
+}());
+exports.Header = Header;
+
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -140,6 +177,57 @@ var Modal = (function () {
     return Modal;
 }());
 exports.Modal = Modal;
+
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var Nav = (function () {
+    function Nav(navId) {
+        var _this = this;
+        this.RegisterToggles = function (navId) {
+            var toggles = document.querySelectorAll('[data-nav-toggle="' + navId + '"]');
+            for (var i = 0; i < toggles.length; i++) {
+                toggles[i].addEventListener('click', _this.Toggle, false);
+            }
+        };
+        this.Toggle = function (event) {
+            if (event)
+                event.preventDefault();
+            _this.navDom.classList.toggle('nav--hidden');
+        };
+        this.RegisterOpeners = function (navId) {
+            var openers = document.querySelectorAll('[data-nav-open="' + navId + '"]');
+            for (var i = 0; i < openers.length; i++) {
+                openers[i].addEventListener('click', _this.Open, false);
+            }
+        };
+        this.Open = function (event) {
+            if (event)
+                event.preventDefault();
+            _this.navDom.classList.remove('nav--hidden');
+        };
+        this.RegisterClosers = function (navId) {
+            var closers = document.querySelectorAll('[data-nav-close="' + navId + '"]');
+            for (var i = 0; i < closers.length; i++) {
+                closers[i].addEventListener('click', _this.Close, false);
+            }
+        };
+        this.Close = function (event) {
+            if (event)
+                event.preventDefault();
+            _this.navDom.classList.add('modal--hidden');
+        };
+        this.navDom = document.querySelector(navId);
+        this.RegisterToggles(navId);
+    }
+    return Nav;
+}());
+exports.Nav = Nav;
 
 
 /***/ })
